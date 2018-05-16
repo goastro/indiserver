@@ -201,6 +201,11 @@ func (s *INDIServer) StopServer() error {
 
 	err = s.cmd.Wait()
 	if err != nil {
+		if err.Error() == "signal: killed" {
+			// We just killed it. It's not an error.
+			return nil
+		}
+
 		s.log.WithError(err).Warn("error in s.cmd.Wait")
 		return err
 	}
