@@ -19,16 +19,6 @@ type Commander interface {
 	Command(name string, args ...string) goexec.Command
 }
 
-/*
-type INDIServer interface {
-	StartServer() error
-	StopServer() error
-	StartDriver(driver, name string) error
-	StopDriver(driver, name string) error
-	Drivers() map[string][]Driver
-}
-*/
-
 // NewINDIServer creates a struct that can be used to get info about installed INDI drivers
 // and start/stop a local indiserver.
 func NewINDIServer(log logging.Logger, fs afero.Fs, port string, cmder Commander) *INDIServer {
@@ -203,7 +193,7 @@ func (s *INDIServer) StopServer() error {
 		}
 	}()
 
-	err := s.cmd.Signal(os.Interrupt)
+	err := s.cmd.Kill()
 	if err != nil {
 		s.log.WithError(err).Warn("error in s.cmd.Signal")
 		return err
