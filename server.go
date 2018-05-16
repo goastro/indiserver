@@ -129,6 +129,10 @@ func (s *INDIServer) Drivers() map[string][]Driver {
 
 // StartServer starts up the indiserver. Be sure to call StopServer when you are done!
 func (s *INDIServer) StartServer() error {
+	if s.cmd != nil {
+		return nil
+	}
+
 	dir, err := afero.TempDir(s.fs, "", "")
 	if err != nil {
 		s.log.WithError(err).Warn("error in afero.TempDir")
@@ -186,7 +190,13 @@ func (s *INDIServer) StartServer() error {
 
 // StopServer stops the currently running indiserver and cleans up.
 func (s *INDIServer) StopServer() error {
+	if s.cmd == nil {
+		return nil
+	}
+
 	defer func() {
+		s.cmd = nil
+
 		err := s.fs.RemoveAll(path.Dir(s.fifoPath))
 		if err != nil {
 			s.log.WithError(err).Warn("error in s.fs.RemoveAll")
