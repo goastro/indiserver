@@ -1,0 +1,8 @@
+github.com/rickbassham/goexec v0.0.0-20180516011632-f3103e879402 h1:7JAgoEwfelaisylObx0aoakuJ5VINjGPdogjrTfqWUc=
+github.com/rickbassham/goexec v0.0.0-20180516011632-f3103e879402/go.mod h1:j2bPlsfIKjhcYc0KNoO5JD1MrIh7oQpaGtFznnaoJf4=
+github.com/rickbassham/logging v0.0.0-20180515233527-fa7f7e400737 h1:qknPAbTb7TdXg1lQFPDOu6TMySNWjtoatd2LB34EdOQ=
+github.com/rickbassham/logging v0.0.0-20180515233527-fa7f7e400737/go.mod h1:rn+eIaDEF3AeI111yoPP1wPF/hvzjVZKTMvzK8JpSTI=
+github.com/spf13/afero v1.2.2 h1:5jhuqJyZCZf2JRofRvN/nIFgIWNzPa3/Vz8mYylgbWc=
+github.com/spf13/afero v1.2.2/go.mod h1:9ZxEEn6pIJ8Rxe320qSDBk6AsU0r9pR7Q4OcevTdifk=
+golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
+golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=

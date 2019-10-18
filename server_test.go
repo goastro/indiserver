@@ -1,4 +1,4 @@
-package indiserver
+package indiserver_test
 
 import (
 	"os"
@@ -8,13 +8,14 @@ import (
 	"github.com/rickbassham/goexec"
 	"github.com/rickbassham/logging"
 	"github.com/spf13/afero"
+	"github.com/goastro/indiserver"
 )
 
 func Example() {
 	logger := logging.NewLogger(os.Stdout, logging.JSONFormatter{}, logging.LogLevelInfo)
 	fs := afero.NewOsFs()
 	port := ""
-	s := NewINDIServer(logger, fs, port, goexec.ExecCommand{})
+	s := indiserver.NewINDIServer(logger, fs, port, goexec.ExecCommand{})
 
 	logger.WithField("drivers", s.Drivers()).Info("drivers")
 
